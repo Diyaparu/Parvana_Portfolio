@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parvana S Nair | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Matrix binary rain -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="ring">
+      <div class="profile-pic">
+        <img src="parvana.jpg" alt="Parvana S Nair" />
+      </div>
+    </div>
+    <div class="text">
+      <h1>Parvana S Nair</h1>
+      <p>Aspiring Cybersecurity Engineer | CSE Undergrad</p>
+      <button onclick="visitHer()">Visit Her</button>
+    </div>
+  </div>
+
+  <main>
+    <!-- About Section -->
+    <section class="section" id="about">
+      <h2>About Me</h2>
+      <div class="sub-items">
+        <div class="item">
+          <p>I’m Parvana, a passionate CSE undergrad focused on Cybersecurity. I love using tech to create real-world impact and constantly challenge myself to grow.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <h2>Projects</h2>
+      <div class="sub-items">
+        <div class="item">
+          <h3>Budget Analyzer Web App</h3>
+          <p>Streamlit app that extracts expense data from images and PDFs using OCR.</p>
+        </div>
+        <div class="item">
+          <h3>Emergency Helpline Platform</h3>
+          <p>One-click emergency call system with chatbot guidance for users.</p>
+        </div>
+        <div class="item">
+          <h3>Personal Portfolio</h3>
+          <p>This website! Built with HTML, CSS, and JavaScript to showcase my work.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <h2>Internships & Experiences</h2>
+      <div class="sub-items">
+        <div class="item">
+          <h3>Cybersecurity Intern</h3>
+          <p>Worked on threat detection models and wrote vulnerability reports.</p>
+        </div>
+        <div class="item">
+          <h3>IEEE Hackathon Finalist</h3>
+          <p>Developed a gender-sensitive emergency solution for disaster zones.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hobbies -->
+    <section class="section" id="hobbies">
+      <h2>Hobbies</h2>
+      <div class="sub-items">
+        <div class="item">
+          <h3>Dance</h3>
+          <p>Hip-hop & heels choreography to express and energize.</p>
+        </div>
+        <div class="item">
+          <h3>Gym & Fitness</h3>
+          <p>Daily training and body positivity through consistent effort.</p>
+        </div>
+        <div class="item">
+          <h3>Writing & Journaling</h3>
+          <p>Documenting life, tracking habits, and reflecting on growth.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <h2>Contact Me</h2>
+      <p>Let's connect!</p>
+      <ul class="contact-list">
+        <li><strong>Phone:</strong> +91-98765-43210</li>
+        <li><strong>Email:</strong> parvana@example.com</li>
+    
+        <li><strong>GitHub:</strong> <a href="https://github.com/Diyaparu" target="_blank">github.com/parvana-username</a></li>
+        
+      </ul>
+    </section>
+  </main>
+
+  <!-- JS -->
+  <script>
+    function visitHer() {
+      window.location.href = "https://www.linkedin.com/in/parvana-s-78880b267";
+    }
+  </script>
+  <script>
+  const canvas = document.getElementById("matrix-canvas");
+  const ctx = canvas.getContext("2d");
+
+  // Full screen
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const binary = "01";
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array.from({ length: columns }).fill(1);
+
+  function drawMatrix() {
+    // Black background with slight opacity for trail effect
+    ctx.fillStyle = "rgba(14, 14, 14, 0.25)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "rgba(0, 255, 200, 0.3)"; // Turquoise green
+    ctx.font = "13px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+      const char = binary[Math.floor(Math.random() * binary.length)];
+      ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+
+      drops[i]++;
+    }
+  }
+
+  setInterval(drawMatrix, 40);
+
+  // Handle screen resize
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+</body>
+</html>
+

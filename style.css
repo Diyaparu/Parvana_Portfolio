@@ -1,0 +1,176 @@
+/* ========== General Styles ========== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0e0e0e;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: #00ffc8;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Matrix Rain Canvas Background */
+ #matrix-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: #0e0e0e;
+}
+
+body > *:not(#matrix-canvas) {
+  position: relative;
+  z-index: 1;
+} 
+
+/* ========== Hero Section ========== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.ring {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 6px solid #00ffc8;
+  animation: spin 6s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.profile-pic img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+}
+
+.text h1 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 2.2rem;
+  margin: 15px 0 10px;
+}
+
+.text p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #00ffc8;
+  color: black;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+button:hover {
+  background: #00c6a4;
+}
+
+/* ========== Main Content Sections ========== */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section {
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 2px solid #00ffc8;
+}
+
+.section h2 {
+  font-size: 1.6rem;
+  color: #00ffc8;
+  margin-bottom: 15px;
+}
+
+/* ========== Sub-item Cards ========== */
+.sub-items {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sub-items .item {
+  background: rgba(0, 255, 200, 0.05);
+  padding: 16px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s forwards;
+}
+
+.sub-items .item:nth-child(1) { animation-delay: 0.2s; }
+.sub-items .item:nth-child(2) { animation-delay: 0.4s; }
+.sub-items .item:nth-child(3) { animation-delay: 0.6s; }
+/* Add more nth-childs if needed */
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sub-items h3 {
+  color: #00ffc8;
+  margin: 0 0 5px;
+  font-size: 1.1rem;
+}
+
+/* ========== Contact List ========== */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  font-size: 1rem;
+}
+
+.contact-list li {
+  margin: 10px 0;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 600px) {
+  .ring {
+    width: 150px;
+    height: 150px;
+  }
+  .profile-pic img {
+    width: 110px;
+    height: 110px;
+  }
+  .text h1 {
+    font-size: 1.8rem;
+  }
+}
